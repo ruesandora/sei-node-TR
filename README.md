@@ -26,7 +26,7 @@ Yazılım Gereksinimleri :
 
 Öncelikle Sunucumuza baglanalım, bir pencere açalım ve işlemlere başlayalım.
 
-```sh
+```php
   #Screen Kuralım
   apt install screen
   #Yeni bir screen açalım
@@ -43,6 +43,7 @@ Yazılım Gereksinimleri :
 CTRL + A + D ile pencerimizi kapatalım.
 Eşleşme Tamamlandıktan sonra validatör açmanız gerek...
 ```sh
+ 
  #"<wallet-ismi>" degiştirin ve cüzdan oluşturun
  seid keys add <wallet-ismi>
  
@@ -58,7 +59,8 @@ Eşleşme Tamamlandıktan sonra validatör açmanız gerek...
     --commission-rate="0.10" \
     --commission-max-rate="0.20" \
     --commission-max-change-rate="0.01" \
-    --min-self-delegation="1"
+    --min-self-delegation="1"\
+    --yes
  
 
 ```
