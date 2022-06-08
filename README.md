@@ -32,7 +32,7 @@ Yazılım Gereksinimleri :
   #Screen Kuralım
   apt install screen
   #Yeni bir screen açalım
-  screen -r node
+  screen -S node
   #Oto kurulumu başlatalım
   wget -q -O sei-kur.sh https://api.rues.info/sei-kur.sh && chmod +x sei-kur.sh && sudo /bin/bash sei-kur.sh
   #Node ismi isteycektir girin ve Enter basın işlemin bitmesini bekleyin
