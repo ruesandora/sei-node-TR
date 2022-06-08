@@ -1,7 +1,7 @@
-<h1 align="center">Sei Validatör Kurulumu Manuel</h1>
+<h1 align="center">Sei Validatör Script Kurulum</h1>
 
 # Sei Network validatör kurulum rehberine hoş geldiniz.
-Manuel kurulum rehberi, script ile daha rahat kurabilirsiniz.
+
 Sorularınız ve sorunlarınız için telegram kanalı: [Telegram](https://t.me/SeiNetworkTurkish)
 
 ![image](https://user-images.githubusercontent.com/101149671/172654026-36c4b404-4220-4eba-9331-c40cd3a13acc.png)
