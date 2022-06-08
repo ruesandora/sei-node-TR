@@ -75,15 +75,10 @@ Teşekkürler <3
 
 # Hesaplar:
 
-[Twitter](https://twitter.com/Ruesandora0)
-
-[Forum](https://forum.rues.info/index.php)
-
-[Telegram Announcement](https://t.me/RuesAnnouncement)
-
-[Telegram Chat](https://t.me/RuesChat)
-
-[Telegram Node](https://t.me/RuesNode)
-
-[Telegram Node Chat](https://t.me/RuesNodeChat)
+[<img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="16px"> Twitter   ](https://twitter.com/Ruesandora0) 
+[<img src="https://cdn-icons-png.flaticon.com/512/1336/1336494.png" width="16px"> Forum   ](https://forum.rues.info/index.php)
+[<img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" width="16px"> Telegram Announcement   ](https://t.me/RuesAnnouncement)
+[<img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" width="16px"> Telegram Chat   ](https://t.me/RuesChat)
+[<img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" width="16px"> Telegram Node   ](https://t.me/RuesNode)
+[<img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" width="16px"> Telegram Node Chat](https://t.me/RuesNodeChat)
 
