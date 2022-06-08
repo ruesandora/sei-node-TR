@@ -43,54 +43,54 @@ cd $HOME/sei-chain
 make install
 sleep 1
 ln -s $HOME/go/bin/seid /usr/local/bin/seid
-kujirad init "$KUJIRAD_NODENAME" --chain-id=harpoon-3
+kujirad init "$SEID_NODENAME" --chain-id=sei-testnet-2
 
-#seeds="8e1590558d8fede2f8c9405b7ef550ff455ce842@51.79.30.9:26656,bfffaf3b2c38292bd0aa2a3efe59f210f49b5793@51.91.208.71:26656,106c6974096ca8224f20a85396155979dbd2fb09@198.244.141.176:26656"
-#peers="111ba4e5ae97d5f294294ea6ca03c17506465ec5@208.68.39.221:26656,b16142de5e7d89ee87f36d3bbdd2c2356ca2509a@75.119.155.248:26656,ad7b2ecb931a926d60d1e034d0e37a83d0e265f1@109.107.181.127:26656,1b827c298f013900476c2eab25ce5ff75a6f8700@178.63.62.212:26656,111ba4e5ae97d5f294294ea6ca03c17506465ec5@208.68.39.221:26656,f114c02efc5aa7ee3ee6733d806a1fae2fbfb66b@5.189.178.222:46656,8980faac5295875a5ecd987a99392b9da56c9848@85.10.216.151:26656,3c3170f0bcbdcc1bef12ed7b92e8e03d634adf4e@65.108.103.236:27656"
+echo -e '\n\e[42mSeed Bilgileri ekleniyor\e[0m\n' && sleep 1
 
-#sed -i "s/^seeds *=.*/seeds = \"$seeds\"/;" $HOME/.kujira/config/config.toml
-#sed -i "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/;" $HOME/.kujira/config/config.toml
+# Seed ayarlanması
+SEEDS=""
+PEERS="585727dac5df8f8662a8ff42052a9584a1f7ee95@165.22.25.77:26656,2f047e234cb8b99fe8b9fee0059a5bc45042bc97@95.216.84.188:26656,bab4849cf3918c37b04cd3714984d1765616a4b2@49.12.76.255:36656,ab955dc7f70d8613ab4b554868d4658fd70b797b@217.79.180.194:26656,39c4bcaded0d1d886f2788ae955f1939406f3e7d@65.108.198.54:26696,9db58dba3b6354177fb428caccf5167c616ad4a1@167.235.28.18:26656,2f2804434afda302c86eb89eca27503e49a8a260@65.21.131.215:26696,38b4d78c7d6582fb170f6c19330a7e37e6964212@194.163.189.114:46656,7c5ee0d66a15013f0a771055378c5316331f17ba@95.216.101.84:25646,6f71bcbe347069fc4df9b607f6b843226e8deb71@95.217.221.201:26656"
+sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.sei/config/config.toml
+
+
 
 #### VALIDATOR ####
-sed -i "s/pruning *=.*/pruning = \"custom\"/g" $HOME/.kujira/config/app.toml
-sed -i "s/pruning-keep-recent *=.*/pruning-keep-recent = \"809\"/g" $HOME/.kujira/config/app.toml
-sed -i "s/pruning-interval *=.*/pruning-interval = \"43\"/g" $HOME/.kujira/config/app.toml
-#sed -i.bak -e "s/indexer *=.*/indexer = \"null\"/g" $HOME/.kujira/config/config.toml
-sed -i "s/index-events =.*/index-events = [\"tx.hash\",\"tx.height\"]/g" $HOME/.kujira/config/app.toml
-wget -O $HOME/.kujira/config/genesis.json https://raw.githubusercontent.com/Team-Kujira/networks/master/testnet/harpoon-3.json
-kujirad tendermint unsafe-reset-all
-wget -O $HOME/.kujira/config/addrbook.json https://raw.githubusercontent.com/Team-Kujira/networks/master/testnet/addrbook.json 
-echo -e '\n\e[42mRunning\e[0m\n' && sleep 1
-echo -e '\n\e[42mCreating a service\e[0m\n' && sleep 1
+sed -i -e "s/^pruning *=.*/pruning = \"$pruning\"/" $HOME/.sei/config/app.toml
+sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" $HOME/.sei/config/app.toml
+sed -i -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"$pruning_keep_every\"/" $HOME/.sei/config/app.toml
+sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.sei/config/app.toml
+seid tendermint unsafe-reset-all
+echo -e '\n\e[42mServis Kuruluyor\e[0m\n' && sleep 1
 
-echo "[Unit]
-Description=Kujirad Node
+# servis
+tee $HOME/seid.service > /dev/null <<EOF
+[Unit]
+Description=seid
 After=network.target
-
 [Service]
-User=$USER
 Type=simple
-ExecStart=$(which kujirad) start
+User=$USER
+ExecStart=$(which seid) start
 Restart=on-failure
+RestartSec=10
 LimitNOFILE=65535
-
 [Install]
-WantedBy=multi-user.target" > $HOME/kujirad.service
-sudo mv $HOME/kujirad.service /etc/systemd/system
-sudo tee <<EOF >/dev/null /etc/systemd/journald.conf
-Storage=persistent
+WantedBy=multi-user.target
 EOF
+
+sudo mv $HOME/seid.service /etc/systemd/system/
+
+
 echo -e '\n\e[42mRunning a service\e[0m\n' && sleep 1
-sudo systemctl restart systemd-journald
 sudo systemctl daemon-reload
-sudo systemctl enable kujirad
-sudo systemctl restart kujirad
+sudo systemctl enable seid
+sudo systemctl restart seid
+
 
 echo -e '\n\e[42mCheck node status\e[0m\n' && sleep 1
-if [[ `service kujirad status | grep active` =~ "running" ]]; then
-  echo -e "Your kujira node \e[32minstalled and works\e[39m!"
-  echo -e "You can check node status by the command \e[7mservice kujirad status\e[0m"
+if [[ `service seid status | grep active` =~ "running" ]]; then
+  echo -e "sei node \e[32kuruldu ve ok\e[39m!"
   echo -e "Press \e[7mQ\e[0m for exit from status menu"
 else
-  echo -e "Your kujirad node \e[31mwas not installed correctly\e[39m, please reinstall."
+  echo -e "sei node \e[31mbir hata var\e[39m, tekrar kur."
 fi
