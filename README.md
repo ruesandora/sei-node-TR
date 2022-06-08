@@ -1,8 +1,10 @@
-<p align="center">
-  <img  src="https://cdn.discordapp.com/attachments/954773992345055262/984090832678309928/unknown.png">
-</p>
+<h1 align="center">Sei Validatör Kurulumu Manuel</h1>
 
-<h1 align="center">Sei Chain</h1>
+# Sei Network validatör kurulum rehberine hoş geldiniz.
+Manuel kurulum rehberi, script ile daha rahat kurabilirsiniz.
+Sorularınız ve sorunlarınız için telegram kanalı: [Telegram](https://t.me/SeiNetworkTurkish)
+
+![image](https://user-images.githubusercontent.com/101149671/172654026-36c4b404-4220-4eba-9331-c40cd3a13acc.png)
 
 
 Sei Ağı, sipariş defterine özgü ilk L1 blok zinciridir. Zincir, her şeyden önce güvenilirliği, güvenliği ve yüksek verimi vurgulayarak, üstüne inşa edilmiş ultra yüksek performanslı DeFı ürünlerinin tamamen yeni bir kademesini mümkün kılıyor. Sei'nin zincir içi CLOB ve eşleştirme motoru, tüccarlar ve uygulamalar için derin likidite ve fiyat-zaman öncelikli eşleştirme sağlar. Seı üzerine kurulu uygulamalar, yerleşik sipariş defteri altyapısından, derin likiditeden ve tamamen merkezi olmayan bir eşleştirme hizmetinden yararlanır. Kullanıcılar, MEV koruması ile birlikte işlemlerinin fiyatını, boyutunu ve yönünü seçme yeteneği ile bu değişim modelinden yararlanır.
@@ -63,3 +65,25 @@ Eşleşme Tamamlandıktan sonra validatör açmanız gerek...
     --yes
  #"CTRL + A + D" screen kapatın.
 ```
+
+# DAHA FAZLA SORUNUZ VARSA SEİ TÜRKİYE TELEGRAM GRUBU:
+
+[Telegram](https://t.me/SeiNetworkTurkish)
+
+Teşekkürler <3
+
+
+# Hesaplar:
+
+[Twitter](https://twitter.com/Ruesandora0)
+
+[Forum](https://forum.rues.info/index.php)
+
+[Telegram Announcement](https://t.me/RuesAnnouncement)
+
+[Telegram Chat](https://t.me/RuesChat)
+
+[Telegram Node](https://t.me/RuesNode)
+
+[Telegram Node Chat](https://t.me/RuesNodeChat)
+
