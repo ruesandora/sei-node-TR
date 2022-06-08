@@ -61,5 +61,5 @@ Eşleşme Tamamlandıktan sonra validatör açmanız gerek...
     --commission-max-change-rate="0.01" \
     --min-self-delegation="1" \
     --yes
- "CTRL + A + D" screen kapatın.
+ #"CTRL + A + D" screen kapatın.
 ```
