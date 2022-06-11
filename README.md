@@ -66,6 +66,45 @@ Eşleşme Tamamlandıktan sonra validatör açmanız gerek...
  #"CTRL + A + D" screen kapatın.
 ```
 
+# 1.0.3b Güncellemesi
+Node Pencerinize girin, "systemctl stop seid" ile durdurun. 
+Güncellemeye devam edin..
+
+```sh
+ Update 1.0.3b
+
+//oto kurulum için
+cd
+rm $HOME/sei -rf
+git clone https://github.com/sei-protocol/sei-chain.git && cd $HOME/sei-chain
+git checkout 1.0.3beta
+make install
+go build -o build/seid ./cmd/seid
+chmod +x ./build/seid && sudo mv ./build/seid /usr/local/bin/seid
+mv ~/go/bin/seid /usr/local/bin/seid
+mv $HOME/sei-chain $HOME/sei
+systemctl restart seid
+journalctl -fu seid -o cat
+
+//manuel kurulum için
+cd
+rm $HOME/sei-chain -rf
+git clone https://github.com/sei-protocol/sei-chain.git && cd $HOME/sei-chain
+git checkout 1.0.3beta
+make install
+go build -o build/seid ./cmd/seid
+chmod +x ./build/seid && sudo mv ./build/seid /usr/local/bin/seid
+mv ~/go/bin/seid /usr/local/bin/seid
+systemctl restart seid
+journalctl -fu seid -o cat
+
+
+
+
+//UnJail
+seid tx slashing unjail   --broadcast-mode=block   --from=wallet chain-id=sei-testnet-2
+```
+
 # DAHA FAZLA SORUNUZ VARSA SEİ TÜRKİYE TELEGRAM GRUBU:
 
 [Telegram](https://t.me/SeiNetworkTurkish)
