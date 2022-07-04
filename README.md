@@ -158,6 +158,35 @@ systemctl restart seid
 journalctl -fu seid -o cat
 ```
 
+# 1.0.6b Güncellemesi
+```
+//oto kurulum için
+cd
+rm $HOME/sei -rf
+git clone https://github.com/sei-protocol/sei-chain.git && cd $HOME/sei-chain
+git checkout 1.0.6beta
+make install
+go build -o build/seid ./cmd/seid
+chmod +x ./build/seid && sudo mv ./build/seid /usr/local/bin/seid
+mv ~/go/bin/seid /usr/local/bin/seid
+mv $HOME/sei-chain $HOME/sei
+systemctl restart seid
+journalctl -fu seid -o cat
+
+//manuel kurulum için
+cd
+rm $HOME/sei-chain -rf
+git clone https://github.com/sei-protocol/sei-chain.git && cd $HOME/sei-chain
+git checkout 1.0.6beta
+make install
+go build -o build/seid ./cmd/seid
+chmod +x ./build/seid && sudo mv ./build/seid /usr/local/bin/seid
+mv ~/go/bin/seid /usr/local/bin/seid
+systemctl restart seid
+journalctl -fu seid -o cat
+```
+
+
 //UnJail
 seid tx slashing unjail   --broadcast-mode=block   --from=wallet chain-id=sei-testnet-2
 ```
